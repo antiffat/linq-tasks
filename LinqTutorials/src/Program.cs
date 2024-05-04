@@ -16,6 +16,7 @@ namespace LinqTutorials
             var hasBackendProgrammer = LinqTasks.Task8();
             var newestFrontendDeveloper = LinqTasks.Task9();
             var results = LinqTasks.Task10();
+            var task11 = LinqTasks.Task11();
             
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
@@ -61,6 +62,12 @@ namespace LinqTutorials
             
             Console.WriteLine("Task 10:");
             foreach (var item in results)
+            {
+                Console.WriteLine(item);
+            }
+            
+            Console.WriteLine("Task 11:");
+            foreach (var item in task11)
             {
                 Console.WriteLine(item);
             }
