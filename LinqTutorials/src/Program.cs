@@ -8,6 +8,7 @@ namespace LinqTutorials
         {
             var backendProgrammers = LinqTasks.Task1();
             var frontendProgrammers = LinqTasks.Task2();
+            var salary = LinqTasks.Task3();
 
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
@@ -20,6 +21,9 @@ namespace LinqTutorials
             {
                 Console.WriteLine($"ID: {emp.Empno}, Name: {emp.Ename}, Job: {emp.Job}, Salary: {emp.Salary}");
             }
+            
+            Console.WriteLine($"Maximum salary: {salary}");
+            
         }
     }
 }
