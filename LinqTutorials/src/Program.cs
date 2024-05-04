@@ -13,6 +13,7 @@ namespace LinqTutorials
             var aliasedEmployees = LinqTasks.Task5();
             var mergedTable = LinqTasks.Task6();
             var jobCounts = LinqTasks.Task7();
+            var hasBackendProgrammer = LinqTasks.Task8();
 
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
@@ -51,6 +52,9 @@ namespace LinqTutorials
             {
                 Console.WriteLine(job);
             }
+            
+            Console.WriteLine($"We have a backend programmer (True/False): {hasBackendProgrammer}");
+            
         }
     }
 }
