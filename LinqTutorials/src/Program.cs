@@ -14,7 +14,8 @@ namespace LinqTutorials
             var mergedTable = LinqTasks.Task6();
             var jobCounts = LinqTasks.Task7();
             var hasBackendProgrammer = LinqTasks.Task8();
-
+            var newestFrontendDeveloper = LinqTasks.Task9();
+            
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
             {
@@ -54,6 +55,8 @@ namespace LinqTutorials
             }
             
             Console.WriteLine($"We have a backend programmer (True/False): {hasBackendProgrammer}");
+            
+            Console.WriteLine($"Last hired frontend developer: {newestFrontendDeveloper.Ename}, Hired: {newestFrontendDeveloper.HireDate}");
             
         }
     }
