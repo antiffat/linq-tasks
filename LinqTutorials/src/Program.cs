@@ -9,7 +9,8 @@ namespace LinqTutorials
             var backendProgrammers = LinqTasks.Task1();
             var frontendProgrammers = LinqTasks.Task2();
             var salary = LinqTasks.Task3();
-            var empsWithHighestSal = LinqTasks.Task4();
+            var employeesWithHighestSal = LinqTasks.Task4();
+            var aliasedEmployees = LinqTasks.Task5();
 
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
@@ -26,11 +27,16 @@ namespace LinqTutorials
             Console.WriteLine($"Maximum salary: {salary}");
             
             Console.WriteLine("Employee with the highest salary:");
-            foreach (var emp in empsWithHighestSal)
+            foreach (var emp in employeesWithHighestSal)
             {
                 Console.WriteLine($"ID: {emp.Empno}, Name: {emp.Ename}, Job: {emp.Job}, Salary: {emp.Salary}");
             }
             
+            Console.WriteLine("Aliased employees:");
+            foreach (var emp in aliasedEmployees)
+            {
+                Console.WriteLine(emp);
+            }
         }
     }
 }
