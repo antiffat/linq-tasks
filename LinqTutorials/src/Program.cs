@@ -11,6 +11,7 @@ namespace LinqTutorials
             var salary = LinqTasks.Task3();
             var employeesWithHighestSal = LinqTasks.Task4();
             var aliasedEmployees = LinqTasks.Task5();
+            var mergedTable = LinqTasks.Task6();
 
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
@@ -36,6 +37,12 @@ namespace LinqTutorials
             foreach (var emp in aliasedEmployees)
             {
                 Console.WriteLine(emp);
+            }
+            
+            Console.WriteLine("Emps and Depts table merged");
+            foreach (var item in mergedTable)
+            {
+                Console.WriteLine(item);
             }
         }
     }
