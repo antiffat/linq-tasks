@@ -6,8 +6,12 @@ namespace LinqTutorials
     {
         static void Main(string[] args)
         {
-            var t = LinqTasks.Task1();
+            var backendProgrammers = LinqTasks.Task1();
 
+            foreach (var emp in backendProgrammers)
+            {
+                Console.WriteLine($"ID: {emp.Empno}, Name: {emp.Ename}, Job: {emp.Job}, Salary: {emp.Salary}");
+            }
         }
     }
 }
