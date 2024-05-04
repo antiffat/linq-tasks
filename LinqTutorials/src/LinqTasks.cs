@@ -205,7 +205,7 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<Emp> Task4()
         {
-            IEnumerable<Emp> result = null;
+            IEnumerable<Emp> result = Emps.Where(emp => emp.Salary.Equals(Emps.Max(emp1 => emp1.Salary)));
             return result;
         }
 
