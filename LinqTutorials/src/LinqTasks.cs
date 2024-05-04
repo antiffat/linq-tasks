@@ -238,7 +238,11 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<object> Task7()
         {
-            IEnumerable<object> result = null;
+            IEnumerable<object> result = Emps.GroupBy(emp => emp.Job).Select(group => new
+            {
+                Praca = group.Key,
+                LiczbaPracownikow = group.Count()
+            });
             return result;
         }
 
