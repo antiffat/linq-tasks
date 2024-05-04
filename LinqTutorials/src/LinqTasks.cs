@@ -273,7 +273,22 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<object> Task10()
         {
-            IEnumerable<object> result = null;
+            var selectedEmps = Emps.Select(emp => new
+            {
+                Ename = emp.Ename, 
+                Job = emp.Job, 
+                HireDate = emp.HireDate
+            });
+
+            var defaultEntry = new[]
+            {
+                new
+                {
+                    Ename = "Brak wartości", Job = (string)null, HireDate = (DateTime?)null
+                }
+            };
+            
+            IEnumerable<object> result = selectedEmps.Union(defaultEntry);
             return result;
         }
 
