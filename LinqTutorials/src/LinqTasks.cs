@@ -372,7 +372,7 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<Dept> Task16()
         {
-            IEnumerable<Dept> result = null;
+            IEnumerable<Dept> result = Emps.SelectMany(emp => Depts);;
             //result =
             return result;
         }

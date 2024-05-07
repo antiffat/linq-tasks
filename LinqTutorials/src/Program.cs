@@ -18,6 +18,21 @@ namespace LinqTutorials
             var results = LinqTasks.Task10();
             var departmentGroups = LinqTasks.Task11();
             var managersWithSubordinates = LinqTasks.Task12();
+            var crossJoin = LinqTasks.Task16();
+            Console.WriteLine("Task 16:");
+            Console.WriteLine("Empno\tEname\tJob\tHireDate\tSalary\tMgr\tDeptno(Emp)\tDeptno(Dept)\tDname\tLoc");
+
+            foreach (var emp in LinqTasks.Emps)
+            {
+                foreach (var dept in LinqTasks.Depts)
+                {
+                    // Assuming Mgr is another employee, we may want to print the manager's employee number
+                    var mgrEmpno = emp.Mgr?.Empno.ToString() ?? "null";
+
+                    // Print each combination of employee and department details
+                    Console.WriteLine($"{emp.Empno}\t{emp.Ename}\t{emp.Job}\t{emp.HireDate:yyyy/MM/dd}\t{emp.Salary}\t{mgrEmpno}\t{emp.Deptno}\t{dept.Deptno}\t{dept.Dname}\t{dept.Loc}");
+                }
+            }
             
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
