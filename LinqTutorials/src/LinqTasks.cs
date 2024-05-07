@@ -306,13 +306,13 @@ namespace LinqTutorials
         public static IEnumerable<object> Task11()
         {
             IEnumerable<object> result = Emps.GroupBy(emp => emp.Deptno)
-                                        .Where(emp => emp.Count() > 1)
-                                        .Select(emp => new
-                                        {
-                                            name = Depts.FirstOrDefault(dept => dept.Deptno == emp.Key)?.Dname,
-                                            numOfEmployees = emp.Count()
-                                        })
-                                        .Where(x => x.name != null);
+                .Where(emp => emp.Count() > 1)
+                .Select(emp => new
+                {
+                    name = Depts.FirstOrDefault(dept => dept.Deptno == emp.Key)?.Dname,
+                    numOfEmployees = emp.Count()
+                })
+                .Where(x => x.name != null);
             return result;
         }
 
@@ -348,8 +348,15 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<Dept> Task14()
         {
-            IEnumerable<Dept> result = null;
-            //result =
+            var employeeCounts = Emps.GroupBy(emp => emp.Deptno)
+                .Select(group => new { Deptno = group.Key, Count = group.Count() })
+                .ToList();
+
+            var deptsWithFiveOrNoEmps =
+                Depts.Where(dept => employeeCounts
+                    .Any(ec => ec.Deptno == dept.Deptno && ec.Count == 5) || employeeCounts.All(ec => ec.Deptno != dept.Deptno));
+            
+            IEnumerable<Dept> result = deptsWithFiveOrNoEmps.OrderBy(dept => dept.Dname);
             return result;
         }
         

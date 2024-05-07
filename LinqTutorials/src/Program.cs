@@ -18,8 +18,14 @@ namespace LinqTutorials
             var results = LinqTasks.Task10();
             var departmentGroups = LinqTasks.Task11();
             var managersWithSubordinates = LinqTasks.Task12();
-            int[] numbersList = {1, 1, 3, 4, 4, 10, 0, 7, 7, 8, 3, 7, 3};
+            int[] numbersList = {1, 1, 3, 4, 4, 10, 0, 7, 7, 8, 3, 7, 3}; // SHOULD PRINT 3
             int numAppearsOddTimes = LinqTasks.Task13(numbersList);
+            var deptsWithFiveOrNoEmps = LinqTasks.Task14();
+            Console.WriteLine("Task 14:");
+            foreach (var dept in deptsWithFiveOrNoEmps)
+            {
+                Console.WriteLine($"Deptno: {dept.Deptno}, Dname: {dept.Dname}, Loc: {dept.Loc}");
+            }
             Console.WriteLine($"Task 13: {numAppearsOddTimes}");
             
             Console.WriteLine("Task 16:");
