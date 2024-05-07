@@ -21,6 +21,13 @@ namespace LinqTutorials
             int[] numbersList = {1, 1, 3, 4, 4, 10, 0, 7, 7, 8, 3, 7, 3}; // SHOULD PRINT 3
             int numAppearsOddTimes = LinqTasks.Task13(numbersList);
             var deptsWithFiveOrNoEmps = LinqTasks.Task14();
+            var jobCounts2 = LinqTasks.Task15();
+            Console.WriteLine("Job Counts (where job titles contain 'A' and there are more than 2 employees):");
+            foreach (dynamic job in jobCounts2)
+            {
+                Console.WriteLine($"Job: {job.Praca}, Number of Employees: {job.LiczbaPracownikow}");
+            }
+            
             Console.WriteLine("Task 14:");
             foreach (var dept in deptsWithFiveOrNoEmps)
             {
