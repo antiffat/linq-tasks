@@ -337,7 +337,7 @@ namespace LinqTutorials
         /// </summary>
         public static int Task13(int[] arr)
         {
-            int result = 0;
+            int result = arr.GroupBy(x => x).Where(g => g.Count() % 2 == 1).Select(g => g.Key).FirstOrDefault();
             //result=
             return result;
         }
@@ -373,7 +373,6 @@ namespace LinqTutorials
         public static IEnumerable<Dept> Task16()
         {
             IEnumerable<Dept> result = Emps.SelectMany(emp => Depts);;
-            //result =
             return result;
         }
     }

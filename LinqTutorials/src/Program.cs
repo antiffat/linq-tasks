@@ -18,7 +18,10 @@ namespace LinqTutorials
             var results = LinqTasks.Task10();
             var departmentGroups = LinqTasks.Task11();
             var managersWithSubordinates = LinqTasks.Task12();
-            var crossJoin = LinqTasks.Task16();
+            int[] numbersList = {1, 1, 3, 4, 4, 10, 0, 7, 7, 8, 3, 7, 3};
+            int numAppearsOddTimes = LinqTasks.Task13(numbersList);
+            Console.WriteLine($"Task 13: {numAppearsOddTimes}");
+            
             Console.WriteLine("Task 16:");
             Console.WriteLine("Empno\tEname\tJob\tHireDate\tSalary\tMgr\tDeptno(Emp)\tDeptno(Dept)\tDname\tLoc");
 
