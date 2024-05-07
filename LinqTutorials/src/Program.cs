@@ -16,7 +16,8 @@ namespace LinqTutorials
             var hasBackendProgrammer = LinqTasks.Task8();
             var newestFrontendDeveloper = LinqTasks.Task9();
             var results = LinqTasks.Task10();
-            var task11 = LinqTasks.Task11();
+            var departmentGroups = LinqTasks.Task11();
+            var managersWithSubordinates = LinqTasks.Task12();
             
             Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
@@ -67,9 +68,15 @@ namespace LinqTutorials
             }
             
             Console.WriteLine("Task 11:");
-            foreach (var item in task11)
+            foreach (var department in departmentGroups)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(department);
+            }
+            
+            Console.WriteLine("Task 12:");
+            foreach (var manager in managersWithSubordinates)
+            {
+                Console.WriteLine(manager);
             }
         }
     }

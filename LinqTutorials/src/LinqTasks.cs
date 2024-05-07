@@ -325,8 +325,7 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<Emp> Task12()
         {
-            IEnumerable<Emp> result = null;
-            return result;
+            return Emps.GetEmpsWithSubordinates();
         }
 
         /// <summary>
@@ -382,9 +381,14 @@ namespace LinqTutorials
     public static class CustomExtensionMethods
     {
         //Put your extension methods here
+        // PS: I modified the code to get employees with at least one subordinate
+        // because the original code provided by the task was checking if any other employees share the same manager:
+        // var result = emps.Where(e => emps.Any(e2 => e2.Mgr == e.Mgr)).OrderBy(e => e.Ename).ThenByDescending(e => e.Salary);
+
         public static IEnumerable<Emp> GetEmpsWithSubordinates(this IEnumerable<Emp> emps)
         {
-            var result = emps.Where(e => emps.Any(e2 => e2.Mgr == e.Mgr)).OrderBy(e => e.Ename).ThenByDescending(e => e.Salary);
+            var result = emps.Where(manager => emps.Any(subordinate => subordinate.Mgr == manager))
+                .OrderBy(manager => manager.Ename).ThenByDescending(manager => manager.Salary);
             return result;
         }
 
