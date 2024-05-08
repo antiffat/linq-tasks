@@ -6,104 +6,170 @@ namespace LinqTutorials
     {
         static void Main(string[] args)
         {
+            // Backend Programmers
+            Console.WriteLine("TASK 1: Backend Programmers:");
             var backendProgrammers = LinqTasks.Task1();
-            var frontendProgrammers = LinqTasks.Task2();
-            var salary = LinqTasks.Task3();
-            var employeesWithHighestSal = LinqTasks.Task4();
-            var aliasedEmployees = LinqTasks.Task5();
-            var mergedTable = LinqTasks.Task6();
-            var jobCounts = LinqTasks.Task7();
-            var hasBackendProgrammer = LinqTasks.Task8();
-            var newestFrontendDeveloper = LinqTasks.Task9();
-            var results = LinqTasks.Task10();
-            var departmentGroups = LinqTasks.Task11();
-            var managersWithSubordinates = LinqTasks.Task12();
-            int[] numbersList = {1, 1, 3, 4, 4, 10, 0, 7, 7, 8, 3, 7, 3}; // SHOULD PRINT 3
-            int numAppearsOddTimes = LinqTasks.Task13(numbersList);
-            var deptsWithFiveOrNoEmps = LinqTasks.Task14();
-            var jobCounts2 = LinqTasks.Task15();
-            var jobCombos = LinqTasks.Task16();
-            
-            Console.WriteLine("Job Counts (where job titles contain 'A' and there are more than 2 employees):");
-            foreach (dynamic job in jobCounts2)
-            {
-                Console.WriteLine($"Job: {job.Praca}, Number of Employees: {job.LiczbaPracownikow}");
-            }
-            
-            Console.WriteLine("Task 14:");
-            foreach (var dept in deptsWithFiveOrNoEmps)
-            {
-                Console.WriteLine($"Deptno: {dept.Deptno}, Dname: {dept.Dname}, Loc: {dept.Loc}");
-            }
-            Console.WriteLine($"Task 13: {numAppearsOddTimes}");
-            
-            Console.WriteLine("Task 16:");
-            Console.WriteLine("Empno\tEname\tJob\tHireDate\tSalary\tMgr\tDeptno(Emp)\tDeptno(Dept)\tDname\tLoc");
-
-            foreach (dynamic combo in jobCombos)
-            {
-                Console.WriteLine($"{combo.Empno}\t{combo.Ename}\t{combo.Job}\t{combo.HireDate}\t{combo.Salary}\t{combo.Mgr}\t{combo.DeptnoEmp}\t{combo.DeptnoDept}\t{combo.Dname}\t{combo.Loc}");
-            }
-            
-            Console.WriteLine("All backend programmers:");
             foreach (var emp in backendProgrammers)
             {
                 Console.WriteLine($"ID: {emp.Empno}, Name: {emp.Ename}, Job: {emp.Job}, Salary: {emp.Salary}");
             }
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
 
-            Console.WriteLine("All frontend programmers with salary higher than 1000 sorted in a descending order.");
+            // Frontend Programmers
+            Console.WriteLine("TASK 2: Frontend Programmers with salary over 1000, sorted by name descending:");
+            var frontendProgrammers = LinqTasks.Task2();
             foreach (var emp in frontendProgrammers)
             {
                 Console.WriteLine($"ID: {emp.Empno}, Name: {emp.Ename}, Job: {emp.Job}, Salary: {emp.Salary}");
             }
-            
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Maximum Salary
+            Console.WriteLine("TASK 3: Maximum Salary Across All Employees:");
+            var salary = LinqTasks.Task3();
             Console.WriteLine($"Maximum salary: {salary}");
-            
-            Console.WriteLine("Employee with the highest salary:");
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Employee with the Highest Salary
+            Console.WriteLine("TAS 4: Employee with the Highest Salary:");
+            var employeesWithHighestSal = LinqTasks.Task4();
             foreach (var emp in employeesWithHighestSal)
             {
                 Console.WriteLine($"ID: {emp.Empno}, Name: {emp.Ename}, Job: {emp.Job}, Salary: {emp.Salary}");
             }
-            
-            Console.WriteLine("Aliased employees:");
-            foreach (var emp in aliasedEmployees)
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Aliased Employees
+            Console.WriteLine("TASK 5: Aliased Employees (Custom Output Formats):");
+            var aliasedEmployees = LinqTasks.Task5();
+            foreach (dynamic emp in aliasedEmployees)
             {
-                Console.WriteLine(emp);
+                Console.WriteLine($"Name: {emp.Nazwisko}, Job: {emp.Praca}");
             }
-            
-            Console.WriteLine("Emps and Depts table merged");
-            foreach (var item in mergedTable)
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Merged Emps and Depts Table
+            Console.WriteLine("TASK 6: Merged Emps and Depts Table:");
+            var mergedTable = LinqTasks.Task6();
+            foreach (dynamic item in mergedTable)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"Name: {item.Ename}, Job: {item.Job}, Department: {item.Dname}");
             }
-            
-            Console.WriteLine("Job counts:");
-            foreach (var job in jobCounts)
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Job Counts
+            Console.WriteLine("TASK 7: Job Counts:");
+            var jobCounts = LinqTasks.Task7();
+            foreach (dynamic job in jobCounts)
             {
-                Console.WriteLine(job);
+                Console.WriteLine($"Job: {job.Praca}, Number of Employees: {job.LiczbaPracownikow}");
             }
-            
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Check for Backend Programmers Existence
+            Console.WriteLine("TASK 8: Check for Backend Programmers Existence:");
+            var hasBackendProgrammer = LinqTasks.Task8();
             Console.WriteLine($"We have a backend programmer (True/False): {hasBackendProgrammer}");
-            
-            Console.WriteLine($"Last hired frontend developer: {newestFrontendDeveloper.Ename}, Hired: {newestFrontendDeveloper.HireDate}");
-            
-            Console.WriteLine("Task 10:");
-            foreach (var item in results)
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Newest Frontend Developer
+            Console.WriteLine("TASK 9: Newest Frontend Developer:");
+            var newestFrontendDeveloper = LinqTasks.Task9();
+            Console.WriteLine($"Last hired frontend developer: {newestFrontendDeveloper.Ename}, Hired: {newestFrontendDeveloper.HireDate:yyyy/MM/dd}");
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Union of Employee Info with a Default Entry
+            Console.WriteLine("TASK 10: Union of Employee Info with a Default Entry:");
+            var results = LinqTasks.Task10();
+            foreach (dynamic item in results)
             {
-                Console.WriteLine(item);
+                string formattedHireDate = item.HireDate != null ? item.HireDate.ToString("yyyy/MM/dd") : "null";                
+                Console.WriteLine($"Name: {item.Ename}, Job: {item.Job ?? "No Job"}, HireDate: {formattedHireDate}");
             }
-            
-            Console.WriteLine("Task 11:");
-            foreach (var department in departmentGroups)
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Employees by Department
+            Console.WriteLine("TASK 11: Employees by Department:");
+            var departmentGroups = LinqTasks.Task11();
+            foreach (dynamic department in departmentGroups)
             {
-                Console.WriteLine(department);
+                Console.WriteLine($"Department: {department.name}, Number of Employees: {department.numOfEmployees}");
             }
-            
-            Console.WriteLine("Task 12:");
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Employees with Subordinates
+            Console.WriteLine("TASK 12: Employees with Subordinates:");
+            var managersWithSubordinates = LinqTasks.Task12();
             foreach (var manager in managersWithSubordinates)
             {
-                Console.WriteLine(manager);
+                Console.WriteLine($"Manager: {manager.Ename}, Salary: {manager.Salary}");
             }
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Number that Appears Odd Times in Array
+            Console.WriteLine("TASK 13: Number that Appears Odd Times in Array:");
+            int[] numbersList = {1, 1, 3, 4, 4, 10, 0, 7, 7, 8, 3, 7, 3}; // Should print 3
+            int numAppearsOddTimes = LinqTasks.Task13(numbersList);
+            Console.WriteLine($"Number that appears odd times: {numAppearsOddTimes}");
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Departments with Five or No Employees
+            Console.WriteLine("TASK 14: Departments with Five or No Employees:");
+            var deptsWithFiveOrNoEmps = LinqTasks.Task14();
+            foreach (var dept in deptsWithFiveOrNoEmps)
+            {
+                Console.WriteLine($"Deptno: {dept.Deptno}, Dname: {dept.Dname}, Loc: {dept.Loc}");
+            }
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Job Counts with 'A' in the Job Title
+            Console.WriteLine("TASK 15: Job Counts (where job titles contain 'A' and there are more than 2 employees):");
+            var jobCounts2 = LinqTasks.Task15();
+            foreach (dynamic job in jobCounts2)
+            {
+                Console.WriteLine($"Job: {job.Praca}, Number of Employees: {job.LiczbaPracownikow}");
+            }
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // Cartesian Product of Emps and Depts
+            Console.WriteLine("TASK 16: Cartesian Product of Emps and Depts:");
+            Console.WriteLine("Empno\tEname\tJob\tHireDate\tSalary\tMgr\tDeptno(Emp)\tDeptno(Dept)\tDname\tLoc");
+            var jobCombos = LinqTasks.Task16();
+            foreach (dynamic combo in jobCombos)
+            {
+                Console.WriteLine($"{combo.Empno}\t{combo.Ename}\t{combo.Job}\t{combo.HireDate}\t{combo.Salary}\t{combo.Mgr}\t{combo.DeptnoEmp}\t{combo.DeptnoDept}\t{combo.Dname}\t{combo.Loc}");
+            }
+            Console.WriteLine();
         }
     }
 }
