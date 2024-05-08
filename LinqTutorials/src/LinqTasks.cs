@@ -385,9 +385,23 @@ namespace LinqTutorials
         /// <summary>
         ///     SELECT * FROM Emps, Depts;
         /// </summary>
-        public static IEnumerable<Dept> Task16()
+        public static IEnumerable<object> Task16()
         {
-            IEnumerable<Dept> result = Emps.SelectMany(emp => Depts);;
+            var result = Emps.SelectMany(
+                emp => Depts,
+                (emp, dept) => new {
+                    Empno = emp.Empno,
+                    Ename = emp.Ename,
+                    Job = emp.Job,
+                    HireDate = emp.HireDate.HasValue ? emp.HireDate.Value.ToString("yyyy/MM/dd") : "null",
+                    Salary = emp.Salary,
+                    Mgr = emp.Mgr != null ? emp.Mgr.Empno.ToString() : "null",
+                    DeptnoEmp = emp.Deptno,
+                    DeptnoDept = dept.Deptno,
+                    Dname = dept.Dname,
+                    Loc = dept.Loc
+                }
+            );
             return result;
         }
     }

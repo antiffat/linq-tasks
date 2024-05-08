@@ -22,6 +22,8 @@ namespace LinqTutorials
             int numAppearsOddTimes = LinqTasks.Task13(numbersList);
             var deptsWithFiveOrNoEmps = LinqTasks.Task14();
             var jobCounts2 = LinqTasks.Task15();
+            var jobCombos = LinqTasks.Task16();
+            
             Console.WriteLine("Job Counts (where job titles contain 'A' and there are more than 2 employees):");
             foreach (dynamic job in jobCounts2)
             {
@@ -38,16 +40,9 @@ namespace LinqTutorials
             Console.WriteLine("Task 16:");
             Console.WriteLine("Empno\tEname\tJob\tHireDate\tSalary\tMgr\tDeptno(Emp)\tDeptno(Dept)\tDname\tLoc");
 
-            foreach (var emp in LinqTasks.Emps)
+            foreach (dynamic combo in jobCombos)
             {
-                foreach (var dept in LinqTasks.Depts)
-                {
-                    // Assuming Mgr is another employee, we may want to print the manager's employee number
-                    var mgrEmpno = emp.Mgr?.Empno.ToString() ?? "null";
-
-                    // Print each combination of employee and department details
-                    Console.WriteLine($"{emp.Empno}\t{emp.Ename}\t{emp.Job}\t{emp.HireDate:yyyy/MM/dd}\t{emp.Salary}\t{mgrEmpno}\t{emp.Deptno}\t{dept.Deptno}\t{dept.Dname}\t{dept.Loc}");
-                }
+                Console.WriteLine($"{combo.Empno}\t{combo.Ename}\t{combo.Job}\t{combo.HireDate}\t{combo.Salary}\t{combo.Mgr}\t{combo.DeptnoEmp}\t{combo.DeptnoDept}\t{combo.Dname}\t{combo.Loc}");
             }
             
             Console.WriteLine("All backend programmers:");
